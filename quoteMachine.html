@@ -1,0 +1,92 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" rel="stylesheet">
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.css" rel="stylesheet">
+
+    <link href="./quoteMachine.css" rel="stylesheet" type="text/css">
+    <script src="./quoteMachine.js"></script>
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container">
+      <div class="heading text-center">
+           <h1>RANDOM QUOTE MACHINE</h1>
+      </div>
+      <div class="col-sm-3">
+      </div>
+      <div class="col-md-6 col-sm-12 blockQuote">
+          <div class="quote">
+              <i class=" icon fa fa-quote-left fa-3x fa-pull-left " aria-hidden="true"></i>
+            <p class="quoteText text-center" id="idQuoteText">My day has not come yet but i m still preparing for the Best to happen.</p><p class="author" id="idauthor"><i>- Harish</p></i>
+          </div>
+          <div class="button">
+            <button class="btn btn-default twitterLink">
+            <a href="#" target="_blank" >
+              <i class="fa fa-twitter"></i>
+              </a></button>
+            <button class="btn btn-default quoteButton" onclick="myFunction()">
+              Next Quote
+            </button>
+          </div>
+      </div>
+  </div>
+  <div class="img"><div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+     
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // Create a new function called randsort with a required variable (c)
+        function randsort(c) {
+            // Create new array called o
+            var o = new Array();
+            // Create a loop
+            for (var i = 0; i < c; i++) {
+            	// Select a random number from (c)
+                var n = Math.floor(Math.random()*c);
+                // Use inArray to make sure the value (n) inside array (o) is greater than 0
+                if( jQuery.inArray(n, o) > 0 ) --i;
+                // Push the random number to the array.
+                else o.push(n);
+            }
+            return o;
+        }
+        // An array of all the colors that will be selected from random.
+        var colors = ['B0E250','C0DB79','CFE399','99AF67','7C8865','DEEBB9','B2D355'];
+        // Create a function that will animate all the colors.
+        function animateColors() {
+        	// Loop through each element with a class of square1
+            $("body").each(function(i) {
+            	// Count how many squares there are
+                var numSquares = $("body").size() // Total number of those elements
+                // Plug numSquares into the randsort function to set a random number
+                var randomSquare = randsort(numSquares) // an array of the element indices in random order
+                // Select a random color from the colors array
+                var randomColor = colors[Math.floor(Math.random() * colors.length)];
+                // Change the randomly selected square to a random color over a 4 second period after .5 seconds
+                $(this).delay(randomSquare[i]*500).animate({ backgroundColor: "#"+ randomColor}, 4000);
+            });
+        }
+        // Execute the animateColors function 0 seconds after it completes...or loop forever.
+        setInterval(function(){ 
+            animateColors(colors);}, 0);
+    });
+      
+     
+</script>
+</body>
+
+</html>
